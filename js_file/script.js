@@ -23,8 +23,9 @@ check_box.addEventListener('click', () =>{
 });
 
 // input box
-let my_name = " Sachin Mishra   ";
+let my_name = " Sachin Mishra  ";
 let user_name_inp = document.querySelector('#user-name-inp');
+user_name_inp.placeholder = "Enter Your Name";
 //typing placeholder
 let j = 0;
 let mytm = setInterval(()=>{
@@ -50,16 +51,30 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
     else{
        document.querySelector('.welcome-page').classList.add('active');
        document.querySelector('.opt-cont').classList.add('active');
-       user_name.push(user_name_inp.value);
-       console.log(user_name);
+       user_name.push(user_name_inp.value); //push input value in user_name array
+
+        // 
+        let a = 0;
+        let dis_nm = user_name[0];
+        console.log(dis_nm);
+        let dis_name_tm = setInterval(()=>{
+            document.querySelector('#name-dis').innerHTML += dis_nm[a];
+            a++
+            if(a === dis_nm.length){
+                clearInterval(dis_name_tm);
+            }
+        },200);
     }
 });
 
 // opt-cont : option container
+
+// number button
 let num_btn = document.querySelector('#number').addEventListener('click',()=>{
     console.log("You Press Number Button")
 });
 
+// word button
 let wod_btn = document.querySelector('#word').addEventListener('click',()=>{
     console.log("You Press Word Button")
 });
