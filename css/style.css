@@ -30,7 +30,7 @@ section #sect{
     display: none;
 }
 .welcome-page{
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
 }
 .welcome-page h2{
     color: #2E3840;
@@ -61,7 +61,7 @@ form p{
     border: none;
     background: #C7E8CA;
     text-align: center;
-    font-size: 30pt;
+    font-size: 25pt;
     border-bottom: 2px solid gray;
     text-transform: uppercase;
     font-weight: lighter;
@@ -129,8 +129,19 @@ form p{
     transform: scale(1);
     transition: all 0.4s ease-in;
 }
+
+.opt-cont #name-dis{
+    color: #609966;
+}
+#all-name-dis{
+    font-size: 20pt;
+    margin: 0;
+}
 .opt-cont h2{
     font-size: 30pt;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    color: #2E3840;
 }
 .card{
     height: 320px; 
@@ -187,14 +198,21 @@ form p{
     section #sect{
         height: calc(100vh - 168px);
     }
+    .welcome-page form input#user-name-inp{
+        font-size: 23pt;
+    }
     .card{
         flex-direction: column !important;
         
     }
+    .card button{
+        width: 175px;
+        height: 175px;
+        font-size: 25pt;
+    }
     .card #number{
         margin-right: 0;
-        /* margin-top: 1rem; */
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
 }
@@ -228,6 +246,6 @@ form p{
         padding: 25px 0px;
     }
     .welcome-page form input#user-name-inp{
-        font-size: 20pt;
+        font-size: 18pt;
     }
 }
