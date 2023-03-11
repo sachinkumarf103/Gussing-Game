@@ -62,8 +62,9 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
             a++
             if(a === dis_nm.length){
                 clearInterval(dis_name_tm);
+                a=0;
             }
-        },200);
+        },500);
     }
 });
 
