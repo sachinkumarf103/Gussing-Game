@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="py-3">Guessing Games</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center justify-content-center" id="sect">
+                    <div id="content-box" class="">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Welcome Page -->
+                                <div class="welcome-page">
+                                    <div class="col-lg-12 text-center pt-3">
+                                        <h2>Welcome <br><span>to</span><br> The Game</h2>
+                                    </div>
+                                    <div class="col-lg-12 mt-2" id="section2">
+                                        <form action="">
+                                            <div class="user-input">
+                                                <label for="user_name">Your Name</label>
+                                                <input type="text" class="form-control" placeholder="Enter Your Name" id="user-name-inp" required>
+                                            </div>
+    
+                                            <div class="mt-1 form-check">
+                                                <input type="checkbox" id="term_cond_chk" class="form-check-input">
+                                                <label for="term_cond_chk">Terms and Conditions</label>
+                                                <a href="#" class="float-end" id="read"><i class="fa-solid fa-circle-info"></i>Read...</a>
+                                            </div>
+                                            <p id="erro"></p>
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-outline-success" id="conti-btn" disabled>Continue...</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Terms and Conditions -->
+                                <div class="terms-condi">
+                                    <div class="container">
+                                        <div class="row">
+                                            <button class="term-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                                            <div class="col-lg-12 text-center pt-4">
+                                                <h2>Terms and Conditions</h2>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <h4>Condition 1</h4>
+                                                <ul>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                </ul>
+
+                                                <h4>Condition 1</h4>
+                                                <ul>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, inventore.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option Container -->
+                                <div class="opt-cont">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center my-3">
+                                                <h2>What you Choose</h2>
+                                            </div>
+                                            <div class="col-md-12" >
+                                                <div class="card d-flex flex-row justify-content-center align-items-center">
+                                                    <button id="number">Number</button>
+                                                    <button id="word">Word</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js_file/script.js"></script>
+</body>
+</html>
