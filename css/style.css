@@ -30,7 +30,7 @@ section #sect{
     display: none;
 }
 .welcome-page{
-    transition: all 0.05s ease-in;
+    transition: all 0.5s ease-in;
 }
 .welcome-page h2{
     color: #2E3840;
@@ -217,11 +217,17 @@ form p{
     #section2{
         padding: 25px 25px;
     }
+    .welcome-page form input#user-name-inp{
+        font-size: 25pt;
+    }
     
 }
 
 @media screen and (max-width:340px){
     #section2 {
         padding: 25px 0px;
+    }
+    .welcome-page form input#user-name-inp{
+        font-size: 20pt;
     }
 }
