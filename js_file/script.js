@@ -1,4 +1,5 @@
 let user_name = [];
+let rand_num;
 // Terms and Condtions
 let read_anc = document.querySelector('#read');
 read_anc.addEventListener('click', () =>{
@@ -55,13 +56,12 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
 
         // 
         let a = 0;
-        let dis_nm = user_name[0];
+        let dis_nm = user_name[0]+" ";
         console.log(dis_nm);
         let dis_name_tm = setInterval(()=>{
             document.querySelector('#name-dis').innerHTML += dis_nm[a];
             a++
             if(a === dis_nm.length){
-                // clearInterval(dis_name_tm);
                 a=0;
                 document.querySelector('#name-dis').innerHTML = "";
             }
@@ -72,8 +72,10 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
 // opt-cont : option container
 
 // number button
-let num_btn = document.querySelector('#number').addEventListener('click',()=>{
-    console.log("You Press Number Button")
+let num_btn = document.querySelector('#number');
+num_btn.addEventListener('click',()=>{
+    document.querySelector('.opt-cont').classList.remove('active');
+    document.querySelector('.div-start-cont').classList.add('active');
 });
 
 // word button
@@ -81,4 +83,104 @@ let wod_btn = document.querySelector('#word').addEventListener('click',()=>{
     console.log("You Press Word Button")
 });
 
+// Starting Container
+let minute = 1;
+let inc_btn = document.querySelector('#inc');
+let dec_btn = document.querySelector('#dec');
 
+inc_btn.addEventListener('click', () =>{
+    if(minute >= 1 && minute < 5){
+        minute++;
+        document.querySelector('#root').innerHTML = minute;
+        dec_btn.removeAttribute('disabled','');
+    }
+});
+
+dec_btn.addEventListener('click', ()=>{
+   if(minute > 1){
+    minute--;
+    document.querySelector('#root').innerHTML = minute;
+   }
+});
+
+let min = 0;
+let max = 0;
+let min_selec = document.querySelector('#min');
+min_selec.addEventListener('change',()=>{
+    let min_val = parseInt(min_selec.value);
+    if(min_val >= 1){
+        min = min_val;
+        document.querySelector('#max').removeAttribute('disabled','');
+        document.querySelector('#max').removeAttribute('title','');
+        let max_selec = document.querySelector('#max');
+        max_selec.addEventListener('change',()=>{
+            let max_val = parseInt(max_selec.value);
+            max = max_val
+
+            if(min > max){
+                document.querySelector('#gnb-error').innerHTML = 'This Combination is Not Valid.';
+            }
+            else{
+                document.querySelector('#gnb-error').innerHTML = 'This is Valid.';
+            }
+           
+        })
+
+        if(min > max){
+            document.querySelector('#gnb-error').innerHTML = 'This Combination is Not Valid.';
+        }
+        else{
+            document.querySelector('#gnb-error').innerHTML = 'This is Valid.';
+        }
+    }
+    
+})
+
+// start button
+let start_btn = document.querySelector('#start-btn').addEventListener('click',()=>{
+    console.log(`Min : ${min}, Max : ${max}`);
+    if(min===0 && max===0 || min > max){
+        document.querySelector('#gnb-error').innerHTML = 'Please Select Combination.';
+    }else{
+        console.log('you entered this game;');
+        document.querySelector('.div-start-cont').classList.remove('active');
+        document.querySelector('.count-cont').classList.add('active');
+        let time_val = [1,2,3,"Start"];
+        let i = 0;
+        let strt = setInterval(()=>{
+            console.log(time_val[i]);
+            document.querySelector('.count-cont #count').innerHTML = time_val[i];
+            i++;
+            if(i === 4){
+                clearInterval(strt);
+                setTimeout(()=>{
+                    document.querySelector('.count-cont').classList.remove('active');
+                    document.querySelector('.num-cont').classList.add('active');
+
+                    // Counter
+                    let user_min_sec = minute*3600;
+                    // console.log(user_min_sec);
+                    let counter_number_gusses = setInterval(()=>{
+                        user_min_sec--;
+                        console.log(user_min_sec);
+                    },1000);
+                },1500)
+                
+                console.log('Welcome')
+            }
+        },1000);
+    }
+});
+
+
+// Number Container 
+
+// let num_sub_key = document.querySelector('#num-sub').addEventListener('keyup',mynum);
+
+
+// 
+let timer_count = 0;
+let timer = setInterval(()=>{
+    // console.log(timer_count);
+    // timer_count++;
+},1000);
