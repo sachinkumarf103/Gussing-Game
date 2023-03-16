@@ -1,16 +1,26 @@
-
+:root{
+    --main-color: #C7E8CA;
+    --secondary-color: #DDF7E3;
+    --font-color: #2E3840;
+    --dark-green: #609966;
+    --warning: #ff0000;
+    --success: #008000;
+}
+*{
+    color: var(--font-color);
+}
 header{
-    background-color:#C7E8CA;
+    background-color: var(--main-color);
 }
 header h1{
-    color: #2E3840;
+    color: var(--font-color);
     text-shadow: 5px 15px 5px rgba(0, 0, 0, 20%);
     font-family: 'Climate Crisis', cursive;
     font-size: 40pt;
 }
 
 section{
-    background-color: #DDF7E3;
+    background-color: var(--secondary-color);
 }
 section #sect{
     height: calc(100vh - 104px);
@@ -19,11 +29,11 @@ section #sect{
     width: 50%;
     /* height: 450px; */
     min-height: 450px;
-    background-color: #C7E8CA;
+    background-color: var(--main-color);
     border-radius: 15px;
     box-shadow: 2px 1px 5px -1px rgba(0, 0, 0, 50%);
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 
 }
 #content-box::-webkit-scrollbar{
@@ -31,9 +41,10 @@ section #sect{
 }
 .welcome-page{
     transition: all 0.3s ease-in;
+    /* position: absolute; */
 }
 .welcome-page h2{
-    color: #2E3840;
+    color: var(--font-color);
     font-weight: bold;
     font-size: 35pt;
     line-height: 30px;
@@ -54,12 +65,17 @@ form .user-input label{
     font-weight: 300;
 }
 form p{
-    color: red;
+    color: var(--warning);
     position: absolute;
+    inset: auto 48%;
+    margin-top: 5px;
+}
+form #read i{
+    color: royalblue;
 }
 .welcome-page form input#user-name-inp{
     border: none;
-    background: #C7E8CA;
+    background: var(--main-color);
     text-align: center;
     font-size: 25pt;
     border-bottom: 2px solid gray;
@@ -108,7 +124,7 @@ form p{
     width: 40px;
     border: none;
     border-radius: 10px;
-    background-color: #C7E8CA;
+    background-color: var(--main-color);
     font-size: 15pt;
 }
 .terms-condi.active{
@@ -117,7 +133,7 @@ form p{
 }
 .terms-condi h2{
     font-family: 'Dancing Script', cursive;
-    color: #2E3840;
+    color: var(--font-color);
 }
 
 .opt-cont{
@@ -131,7 +147,7 @@ form p{
 }
 
 .opt-cont #name-dis{
-    color: #609966;
+    color: var(--dark-green);
 }
 #all-name-dis{
     font-size: 20pt;
@@ -155,14 +171,14 @@ form p{
     border-radius: 15px 50px;
     font-size: 30pt;
     font-weight: bolder;
-    background-color: #609966;
+    background-color: var(--dark-green);
     color: white;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.6);
     text-shadow: 3px 2px 5px rgba(0, 0, 0, 0.8);
     transition: all 0.3s ease-in;
 }
 .card button:hover{
-    background-color: #9DC08B;
+    background-color: var(--secondary-color);
     transform: scale(1.1) !important;
     transition: transform 0.3s ease-in;
 }
@@ -178,10 +194,188 @@ form p{
     border-radius: 50px 15px;
 }
 
+/* Counting Containe */
+.count-cont{
+    position: absolute;
+    transform: scale(0);
+    transition: all 0.3s ease-in;
+}
+.count-cont .col-md-12{
+    height: 450px;
+}
+.count-cont .col-md-12 h1{
+    font-size: 50pt;
+}
+.count-cont.active{
+    transform: scale(1);
+    transition: all 0.3s ease-in;
+}
+
+/* Starting Container */
+.incdec{
+    height: 100px;
+    font-size: 18pt;
+    position: relative;
+}
+.incdec h2{
+    font-size: 25pt;
+}
+.incdec p{
+    position: absolute;
+    top: 70px;
+    font-size: 15pt;
+}
+.incdec button{
+    width: 35px;
+    height: 30px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+}
+.incdec button:hover{
+    background-color: var(--dark-green);
+    color: white;
+}
+.incdec button:active{
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+}
+
+/*  */
+.div-start-cont{
+    position: absolute;
+    /* transform: translateY(-100%); */
+    transform: scale(0);
+    transition: all 0.3s ease-in;
+}
+.div-start-cont.active{
+    /* transform: translateY(0); */
+    transform: scale(1);
+    transition: all 0.3s ease-in;
+}
+.gnb-cont{
+    position: relative;
+}
+.gnb-cont .box1 input,select{
+    text-align: center;
+    width: 85px;
+    font-size: 15pt;
+    border: none;
+    box-shadow: 1px 1px 4px 0px black inset;
+    border-radius: 5px;
+    background-color: var(--main-color);
+}
+.gnb-cont .box1 select option{
+    text-align: left;
+}
+.gnb-cont .box1 input:focus{
+    border: none;
+    outline: none;
+}
+.gnb-cont p{
+    position: absolute;
+    inset: 86% 0;
+    color: red;
+    display: block;
+
+}
+.start-cont-btn button{
+    width: 100px;
+    height: 100px;
+    font-size: 25pt;
+    border-radius: 100px;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+}
+.start-cont-btn button:hover{
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+}
+.start-cont-btn button:active{
+    transform: scale(0.8);
+    transition: all 0.3s ease-in;
+}
+
+/* Num-container */
+.num-cont{
+    position: absolute;
+    transform: scale(0);
+    transition: all 0.3s ease-in;
+}
+.num-cont.active{
+    transform: scale(1);
+    transition: all 0.3s ease-in;
+}
+.num-cont .attempt,.timer,.score{
+    width: 125px;
+    background-color: var(--dark-green);
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.6);
+}
+.num-cont form{
+    margin-top: 25px;
+}
+.num-cont form .ent-gus-num{
+    text-align: center;
+}
+.ent-gus-num{
+    margin: 0 50px;
+}
+.ent-gus-num label{
+    font-size: 18pt;
+    font-weight: 300;
+}
+.ent-gus-num input{
+    font-size: 25pt;
+    text-align: center;
+    border: none;
+}
+.ent-gus-num input:focus{
+    box-shadow: none;
+    /* border: 0.1px solid rgba(0, 0, 0, 0.3); */
+    outline: none;
+}
+
+form #num-sub{
+    margin: 0 50px;
+    font-size: 15pt;
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+}
+form #num-sub:hover{
+    letter-spacing: 5px;
+    font-weight: 500;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in;
+}
+form #num-sub:active{
+    transform: scale(0.9);
+    transition: all 0.3s ease-in;
+}
+/* #num-sub:focus-visible{
+    outline: none !important;
+    border: none;
+} */
+.num-cont form input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 
 
 /* media quires */
+@media screen and (max-width:1200px){
+    section #content-box{
+        width: 60%;
+    }
+}
 
 @media screen and (max-width:992px){
     section #content-box{
@@ -214,6 +408,12 @@ form p{
         margin-right: 0;
         margin-bottom: 1.5rem;
     }
+    .ent-gus-num{
+        margin: 0;
+    }
+    form #num-sub{
+        margin: 0;
+    }
 
 }
 @media screen and (max-width:660px){
@@ -238,6 +438,16 @@ form p{
     .welcome-page form input#user-name-inp{
         font-size: 20pt;
     }
+    .ent-gus-num input{
+        font-size: 20pt;
+    }
+    .ent-gus-num label{
+        font-size: 16pt;
+    }
+
+    .count-cont .col-md-12 h1{
+        font-size: 35pt;
+    }
     
 }
 
@@ -247,5 +457,11 @@ form p{
     }
     .welcome-page form input#user-name-inp{
         font-size: 18pt;
+    }
+    .ent-gus-num input{
+        font-size: 15pt;
+    }
+    .ent-gus-num label{
+        font-size: 13pt;
     }
 }
