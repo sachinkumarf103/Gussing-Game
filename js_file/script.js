@@ -57,7 +57,6 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
         // 
         let a = 0;
         let dis_nm = user_name[0]+" ";
-        console.log(dis_nm);
         let dis_name_tm = setInterval(()=>{
             document.querySelector('#name-dis').innerHTML += dis_nm[a];
             a++
@@ -105,6 +104,7 @@ dec_btn.addEventListener('click', ()=>{
 
 let min = 0;
 let max = 0;
+let gnb_error = document.querySelector('#gnb-error');
 let min_selec = document.querySelector('#min');
 min_selec.addEventListener('change',()=>{
     let min_val = parseInt(min_selec.value);
@@ -116,39 +116,42 @@ min_selec.addEventListener('change',()=>{
         max_selec.addEventListener('change',()=>{
             let max_val = parseInt(max_selec.value);
             max = max_val
+            
 
-            if(min > max){
-                document.querySelector('#gnb-error').innerHTML = 'This Combination is Not Valid.';
+            if(min > max || min == max){
+                gnb_error.innerHTML = 'This Combination is Not Valid.';
+                gnb_error.style.color = "red";
             }
             else{
-                document.querySelector('#gnb-error').innerHTML = 'This is Valid.';
+                gnb_error.innerHTML = 'This is Valid.';
+                gnb_error.style.color = "green";
             }
-           
-        })
+        });
 
-        if(min > max){
-            document.querySelector('#gnb-error').innerHTML = 'This Combination is Not Valid.';
+        if(min > max || min == max){
+            gnb_error.innerHTML = 'This Combination is Not Valid.';
+            gnb_error.style.color = "red";
         }
         else{
-            document.querySelector('#gnb-error').innerHTML = 'This is Valid.';
+            gnb_error.innerHTML = 'This is Valid.';
+            gnb_error.style.color = "green";
         }
     }
     
-})
+});
 
 // start button
 let start_btn = document.querySelector('#start-btn').addEventListener('click',()=>{
-    console.log(`Min : ${min}, Max : ${max}`);
-    if(min===0 && max===0 || min > max){
-        document.querySelector('#gnb-error').innerHTML = 'Please Select Combination.';
-    }else{
-        console.log('you entered this game;');
+    // console.log(`Min : ${min}, Max : ${max}`);
+    if(min===0 && max===0 || min > max || min === max){
+        document.querySelector('#gnb-error').innerHTML = 'Please Select Valid Combination.';
+    }
+    else{
         document.querySelector('.div-start-cont').classList.remove('active');
         document.querySelector('.count-cont').classList.add('active');
         let time_val = [1,2,3,"Start"];
         let i = 0;
         let strt = setInterval(()=>{
-            console.log(time_val[i]);
             document.querySelector('.count-cont #count').innerHTML = time_val[i];
             i++;
             if(i === 4){
@@ -156,17 +159,50 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
                 setTimeout(()=>{
                     document.querySelector('.count-cont').classList.remove('active');
                     document.querySelector('.num-cont').classList.add('active');
-
+                    
                     // Counter
-                    let user_min_sec = minute*3600;
-                    // console.log(user_min_sec);
+                    let user_min = minute;
+                    let user_sec = 59;
+                    let user_min_sec = minute*60;
+                    document.querySelector('.timer #min').innerHTML = `0${minute}`; // Set minute value on min id
+
                     let counter_number_gusses = setInterval(()=>{
+                        if(user_min_sec===0){
+                            clearInterval(counter_number_gusses);
+                            console.log("Time Out");
+                        }
+                        else{
+                            if(user_sec <= 59){
+                                if(user_sec == -1){
+                                    user_sec = 59;
+                                    document.querySelector('.timer #sec').innerHTML = `${user_sec}`;
+                                    if(user_sec==59){
+                                        user_min--;
+                                        document.querySelector('.timer #min').innerHTML = `0${user_min}`;  
+                                    }
+                                }
+                                else{
+                                    if(user_sec<10){
+                                        document.querySelector('.timer #sec').innerHTML = `0${user_sec}`;
+                                    }
+                                    else{
+                                        document.querySelector('.timer #sec').innerHTML = `${user_sec}`;
+                                        if(user_sec==59){
+                                            user_min--;
+                                            document.querySelector('.timer #min').innerHTML = `0${user_min}`;  
+                                        }
+                                    }  
+                                }
+                                user_sec--;
+                            }
+
+                            // number gussing program
+
+                        }
                         user_min_sec--;
-                        console.log(user_min_sec);
                     },1000);
                 },1500)
                 
-                console.log('Welcome')
             }
         },1000);
     }
@@ -174,13 +210,3 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
 
 
 // Number Container 
-
-// let num_sub_key = document.querySelector('#num-sub').addEventListener('keyup',mynum);
-
-
-// 
-let timer_count = 0;
-let timer = setInterval(()=>{
-    // console.log(timer_count);
-    // timer_count++;
-},1000);

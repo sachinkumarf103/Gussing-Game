@@ -64,10 +64,9 @@ form .user-input label{
     font-size: 20pt;
     font-weight: 300;
 }
-form p{
+.welcome-page p{
     color: var(--warning);
     position: absolute;
-    inset: auto 48%;
     margin-top: 5px;
 }
 form #read i{
@@ -300,7 +299,7 @@ form #read i{
     transition: all 0.3s ease-in;
 }
 
-/* Num-container */
+/* Nummer-container */
 .num-cont{
     position: absolute;
     transform: scale(0);
@@ -340,20 +339,25 @@ form #read i{
     /* border: 0.1px solid rgba(0, 0, 0, 0.3); */
     outline: none;
 }
-
-form #num-sub{
+.num-cont form p{
+    color: red;
+    position: absolute;
+    inset: auto 47%;
+    margin-top: 5px;
+}
+.num-cont #num-sub{
     margin: 0 50px;
     font-size: 15pt;
     font-weight: 500;
     transition: all 0.3s ease-in;
 }
-form #num-sub:hover{
+.num-cont #num-sub:hover{
     letter-spacing: 5px;
     font-weight: 500;
     transform: scale(1.1);
     transition: all 0.3s ease-in;
 }
-form #num-sub:active{
+.num-cont #num-sub:active{
     transform: scale(0.9);
     transition: all 0.3s ease-in;
 }
@@ -444,7 +448,9 @@ input[type=number]::-webkit-outer-spin-button{
     .ent-gus-num label{
         font-size: 16pt;
     }
-
+    .num-cont .attempt,.timer,.score{
+        width: 95px;
+    }
     .count-cont .col-md-12 h1{
         font-size: 35pt;
     }
@@ -463,5 +469,15 @@ input[type=number]::-webkit-outer-spin-button{
     }
     .ent-gus-num label{
         font-size: 13pt;
+    }
+    .num-cont .attempt,.timer,.score{
+        width: 75px;
+    }
+    .num-cont h4{
+        font-size: 12pt;
+        padding-top: 5px;
+    }
+    .num-cont h2{
+        font-size: 20pt;
     }
 }
