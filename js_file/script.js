@@ -140,7 +140,13 @@ min_selec.addEventListener('change',()=>{
     
 });
 
+// Random Number Generate 
+function rand_num_gen(min,max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // start button
+let guss_num;
 let start_btn = document.querySelector('#start-btn').addEventListener('click',()=>{
     // console.log(`Min : ${min}, Max : ${max}`);
     if(min===0 && max===0 || min > max || min === max){
@@ -151,6 +157,12 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
         document.querySelector('.count-cont').classList.add('active');
         let time_val = [1,2,3,"Start"];
         let i = 0;
+
+        // number gussing program
+        guss_num = rand_num_gen(min,max);
+        console.log(guss_num)
+
+
         let strt = setInterval(()=>{
             document.querySelector('.count-cont #count').innerHTML = time_val[i];
             i++;
@@ -164,7 +176,9 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
                     let user_min = minute;
                     let user_sec = 59;
                     let user_min_sec = minute*60;
-                    document.querySelector('.timer #min').innerHTML = `0${minute}`; // Set minute value on min id
+                    let min_ele = document.querySelector('.timer #min');
+                    let sec_ele = document.querySelector('.timer #sec');
+                    min_ele.innerHTML = `0${minute}`; // Set minute value on min id
 
                     let counter_number_gusses = setInterval(()=>{
                         if(user_min_sec===0){
@@ -175,28 +189,26 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
                             if(user_sec <= 59){
                                 if(user_sec == -1){
                                     user_sec = 59;
-                                    document.querySelector('.timer #sec').innerHTML = `${user_sec}`;
+                                    sec_ele.innerHTML = `${user_sec}`;
                                     if(user_sec==59){
                                         user_min--;
-                                        document.querySelector('.timer #min').innerHTML = `0${user_min}`;  
+                                        min_ele.innerHTML = `0${user_min}`;  
                                     }
                                 }
                                 else{
                                     if(user_sec<10){
-                                        document.querySelector('.timer #sec').innerHTML = `0${user_sec}`;
+                                        sec_ele.innerHTML = `0${user_sec}`;
                                     }
                                     else{
                                         document.querySelector('.timer #sec').innerHTML = `${user_sec}`;
                                         if(user_sec==59){
                                             user_min--;
-                                            document.querySelector('.timer #min').innerHTML = `0${user_min}`;  
+                                            min_ele.innerHTML = `0${user_min}`;  
                                         }
                                     }  
                                 }
                                 user_sec--;
                             }
-
-                            // number gussing program
 
                         }
                         user_min_sec--;
@@ -208,5 +220,41 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
     }
 });
 
-
 // Number Container 
+let score = 0;
+let attempt = 0;
+let num_submit_btn = document.querySelector('#num-sub');
+let num_error = document.querySelector('#num-err');
+let attem_num = document.querySelector('#attempt-num');
+let score_num = document.querySelector('#score-num');
+
+num_submit_btn.addEventListener('click',()=>{
+    let user_guess_num = parseInt(document.querySelector('#num-inp').value);
+    document.querySelector('#num-inp').value = "";
+    
+    if(user_guess_num === guss_num){
+        attempt++;
+        attem_num.innerHTML = attempt;
+        score++;
+        score_num.innerHTML = score;
+        guss_num = rand_num_gen(min,max);
+        console.log(guss_num);
+
+        num_error.innerHTML = `You Gussed You Got ${score} Score`;
+        num_error.style.color = "green";
+
+        
+    }
+    else if(user_guess_num < guss_num){
+        num_error.innerHTML = `Guess Higher Number`;
+        num_error.style.color = "red";
+        attempt++;
+        attem_num.innerHTML = attempt;
+    }
+    else if(user_guess_num > guss_num){
+        num_error.innerHTML = `Guess Lower Number`;
+        num_error.style.color = "red";
+        attempt++;
+        attem_num.innerHTML = attempt;
+    }
+});
