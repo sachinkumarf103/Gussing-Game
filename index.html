@@ -39,7 +39,7 @@
                                         <form action="#">
                                             <div class="user-input">
                                                 <label for="user_name">Your Name</label>
-                                                <input type="text" class="form-control" placeholder="" id="user-name-inp" required>
+                                                <input type="text" class="form-control" placeholder="" id="user-name-inp" autofocus required>
                                             </div>
     
                                             <div class="mt-1 form-check">
@@ -171,7 +171,7 @@
                                             <div class="col-md-12 d-flex justify-content-between my-2 px-0 px-md-2">
                                                 <div class="attempt">
                                                     <h4>Attempt</h4>
-                                                    <h2>0</h2>
+                                                    <h2 id="attempt-num">0</h2>
                                                 </div>
                                                 <div class="timer">
                                                     <h4>Timer</h4>
@@ -179,17 +179,17 @@
                                                 </div>
                                                 <div class="score">
                                                     <h4>Score</h4>
-                                                    <h2>0</h2>
+                                                    <h2 id="score-num">0</h2>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <form action="#">
                                                     <div class="ent-gus-num">
                                                         <label for="num-inp">Enter Guess Number</label>
-                                                        <input type="number" class="form-control" placeholder="Enter Gussing Number" id="num-inp">
+                                                        <input type="number" class="form-control" placeholder="Enter Gussing Number" id="num-inp" autofocus>
                                                     </div>
             
-                                                    <p id="num-err">Help</p>
+                                                    <p id="num-err"></p>
                                                     <div class="d-grid gap-2 py-5">
                                                         <button class="btn btn-outline-success py-2" id="num-sub">Submit</button>
                                                     </div>
