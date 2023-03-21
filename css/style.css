@@ -52,6 +52,7 @@ section #sect{
 }
 .welcome-page h2 span{
     font-size: 20pt;
+    color: var(--font-color);
 }
 .welcome-page.active{
     transform: translateX(-100%);
@@ -316,6 +317,9 @@ form #read i{
     border-radius: 5px;
     box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.6);
 }
+.num-cont .timer span{
+    color: var(--font-color);
+}
 .num-cont form{
     margin-top: 25px;
 }
@@ -371,7 +375,52 @@ input[type=number]::-webkit-outer-spin-button{
     -webkit-appearance: none;
     margin: 0;
 }
-
+/* Number Score Board */
+.num-scr-brd{
+    position: absolute;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd.active{
+    transform: translateY(-0);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .content-box .sco-brd{
+    border-radius: 5px;
+}
+.num-scr-brd .plyagn_cont button{
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button:hover{
+    background-color: var(--dark-green);
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button:active{
+    background-color: var(--dark-green);
+    color: red;
+    transform: scale(0.5);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button .fa-spin-reverse{
+    font-size: 25pt;
+}
+/* Footer */
+footer{
+    height: 40px;
+    background-color: var(--font-color);
+}
+footer p{
+    padding-top: 5px;
+}
+footer p,span{
+    color: white;
+}
 
 
 
@@ -390,6 +439,7 @@ input[type=number]::-webkit-outer-spin-button{
         padding: 25px 50px;
     }
 }
+
 @media screen and (max-width:768px){
     #main-header h1{
         font-size: 35pt;
@@ -421,12 +471,14 @@ input[type=number]::-webkit-outer-spin-button{
     }
 
 }
+
 @media screen and (max-width:660px){
     #section2{
         padding: 25px 25px;
     }
     
 }
+
 @media screen and (max-width:576px){
     #main-header h1{
         font-size: 30pt;
@@ -506,41 +558,6 @@ input[type=number]::-webkit-outer-spin-button{
     .num-cont h2{
         font-size: 20pt;
     }
-}
-/* Number Score Board */
-.num-scr-brd{
-    position: absolute;
-    transform: translateY(-100%);
-    transition: all 0.3s ease-in;
-}
-.num-scr-brd.active{
-    transform: translateY(-0);
-    transition: all 0.3s ease-in;
-}
-.num-scr-brd .content-box .sco-brd{
-    border-radius: 5px;
-}
-.num-scr-brd .plyagn_cont button{
-    border: none;
-    border-radius: 15px;
-    padding: 10px;
-    font-weight: bold;
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in;
-}
-.num-scr-brd .plyagn_cont button:hover{
-    background-color: var(--dark-green);
-    transform: scale(1.2);
-    transition: all 0.3s ease-in;
-}
-.num-scr-brd .plyagn_cont button:active{
-    background-color: var(--dark-green);
-    color: red;
-    transform: scale(0.5);
-    transition: all 0.3s ease-in;
-}
-.num-scr-brd .plyagn_cont button .fa-spin-reverse{
-    font-size: 25pt;
 }
 
 @media screen and (max-width:245px){
