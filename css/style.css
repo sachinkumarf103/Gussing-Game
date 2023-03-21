@@ -9,10 +9,10 @@
 *{
     color: var(--font-color);
 }
-header{
+#main-header{
     background-color: var(--main-color);
 }
-header h1{
+#main-header h1{
     color: var(--font-color);
     text-shadow: 5px 15px 5px rgba(0, 0, 0, 20%);
     font-family: 'Climate Crisis', cursive;
@@ -391,7 +391,7 @@ input[type=number]::-webkit-outer-spin-button{
     }
 }
 @media screen and (max-width:768px){
-    header h1{
+    #main-header h1{
         font-size: 35pt;
     }
     section #sect{
@@ -428,7 +428,7 @@ input[type=number]::-webkit-outer-spin-button{
     
 }
 @media screen and (max-width:576px){
-    header h1{
+    #main-header h1{
         font-size: 30pt;
     }
     section #content-box{
@@ -470,6 +470,9 @@ input[type=number]::-webkit-outer-spin-button{
 }
 
 @media screen and (max-width:340px){
+    #main-header h1{
+        font-size: 25pt;
+    }
     #section2 {
         padding: 25px 0px;
     }
@@ -501,6 +504,47 @@ input[type=number]::-webkit-outer-spin-button{
         padding-top: 5px;
     }
     .num-cont h2{
+        font-size: 20pt;
+    }
+}
+/* Number Score Board */
+.num-scr-brd{
+    position: absolute;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd.active{
+    transform: translateY(-0);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .content-box .sco-brd{
+    border-radius: 5px;
+}
+.num-scr-brd .plyagn_cont button{
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button:hover{
+    background-color: var(--dark-green);
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button:active{
+    background-color: var(--dark-green);
+    color: red;
+    transform: scale(0.5);
+    transition: all 0.3s ease-in;
+}
+.num-scr-brd .plyagn_cont button .fa-spin-reverse{
+    font-size: 25pt;
+}
+
+@media screen and (max-width:245px){
+    #main-header h1{
         font-size: 20pt;
     }
 }
