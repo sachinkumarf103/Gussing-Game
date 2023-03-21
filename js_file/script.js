@@ -183,7 +183,10 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
                     let counter_number_gusses = setInterval(()=>{
                         if(user_min_sec===0){
                             clearInterval(counter_number_gusses);
+                            // Time Out 
                             console.log("Time Out");
+                            document.querySelector('.num-cont').classList.remove('active');
+                            document.querySelector('.num-scr-brd').classList.add('active');
                         }
                         else{
                             if(user_sec <= 59){
@@ -257,4 +260,12 @@ num_submit_btn.addEventListener('click',()=>{
         attempt++;
         attem_num.innerHTML = attempt;
     }
+});
+
+// Number Score Board
+// Play again btn
+let ply_agn_btn = document.querySelector('#ply-agn-btn');
+ply_agn_btn.addEventListener('click',()=>{
+    document.querySelector('.num-scr-brd').classList.remove('active');
+    document.querySelector('.opt-cont').classList.add('active');
 });
