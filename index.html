@@ -116,16 +116,18 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col">
+                                                <button id="stcot-bck-btn" title="Back"><i class="fa-solid fa-arrow-left"></i></button>
                                                 <header>
-                                                    <h2 class="text-center pt-sm-5 pt-3">What you choose</h2>
+                                                    <h2 class="text-center pt-4">What you choose</h2>
                                                 </header>
-                                                <div class="incdec d-flex align-items-center justify-content-center">
+                                                <div class="incdec d-flex align-items-center justify-content-center mt-4">
+                                                    <h4 class="text-center mb-0">Time</h4>
                                                     <button id="dec" disabled>-</button>
                                                     <h2 id="root" class="px-3">1</h2>
                                                     <p>Minutes</p>
                                                     <button id="inc">+</button>
                                                 </div>
-                                                <div class="gnb-cont text-center py-3 ">
+                                                <div class="gnb-cont text-center my-3">
                                                     <h4>Gussing Number Between</h4>
                                                     <div class="box1 d-flex align-items-center justify-content-center">
                                                         <!-- <input type="number" placeholder="Min" id="min"> -->
@@ -150,7 +152,7 @@
                                                     </div>
                                                     <p class="m-0" id="gnb-error"><!--This Combination is not Valid. --></p>
                                                 </div>
-                                                <div class="start-cont-btn d-flex justify-content-center mt-5 mt-sm-4">
+                                                <div class="start-cont-btn d-flex justify-content-center mt-4">
                                                     <button class="btn btn-outline-success" id="start-btn">Start</button>
                                                 </div>
                                                 
@@ -216,19 +218,19 @@
                                                             <div class="col-md-4 gx-0 gy-0">
                                                                 <div class="sco-brd bg-info py-md-2 py-1 shadow">
                                                                     <h3>Score</h3>
-                                                                    <h4>0</h4>
+                                                                    <h4 id="sco-brd-val">0</h4>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4 gx-md-2 gx-0 gy-0">
-                                                                <div class="sco-brd bg-warning py-md-2 py-1 shadow">
+                                                                <div class="att-brd bg-warning py-md-2 py-1 shadow">
                                                                     <h3>Attempts</h3>
-                                                                    <h4>0</h4>
+                                                                    <h4 id="att-brd-val">0</h4>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4 gx-0 gy-0">
-                                                                <div class="sco-brd bg-primary py-md-2 py-1 shadow">
+                                                                <div class="tm-brd bg-primary py-md-2 py-1 shadow">
                                                                     <h3>Time</h3>
-                                                                    <h4>0</h4>
+                                                                    <h4 id="tm-brd-val">0</h4>
                                                                 </div>
                                                             </div>
                                                             <a href="#">Score Details...</a>
@@ -240,6 +242,21 @@
                                             <div class="col-md-12">
                                                 <div class="plyagn_cont text-center my-md-5 my-2">
                                                     <button id="ply-agn-btn"><i class="fa-solid fa-arrow-rotate-left fa-spin fa-spin-reverse"></i><br>Play Again</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Word Container -->
+                                <div class="wrd-cont text-center d-flex align-items-center justify-content-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="show">
+                                                    <h4>Work on Progress...</h4>
+                                                    <h2>Thank You</h2>
+                                                    <p>For Your Interest.</p>
                                                 </div>
                                             </div>
                                         </div>
