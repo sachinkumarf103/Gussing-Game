@@ -290,7 +290,9 @@ form #read i{
 }
 .gnb-cont p{
     position: absolute;
-    inset: 86% 0;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    inset: 95% 0;
     color: red;
     display: block;
 
@@ -595,6 +597,6 @@ footer p,span{
         font-size: 20pt;
     }
     .start-cont-btn{
-        margin-top: -12px !important;
+        margin-top: 5px !important;
     }
 }

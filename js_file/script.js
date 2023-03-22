@@ -1,27 +1,7 @@
 let user_name = [];
 let rand_num;
-// Terms and Condtions
-let read_anc = document.querySelector('#read');
-read_anc.addEventListener('click', () =>{
-    document.querySelector('.welcome-page').classList.add('active');
-    document.querySelector('.terms-condi').classList.add('active');
-});
 
-let term_btn = document.querySelector('.term-btn').addEventListener('click', () =>{
-    document.querySelector('.terms-condi').classList.remove('active');
-    document.querySelector('.welcome-page').classList.remove('active');
-});
-
-//Check box
-let check_box = document.querySelector('#term_cond_chk');
-check_box.addEventListener('click', () =>{
-    if (check_box.checked == true){
-        document.querySelector('#conti-btn').removeAttribute('disabled','active');
-    }
-    else{
-        document.querySelector('#conti-btn').setAttribute('disabled','');
-    }
-});
+/* --------------------------------------------Welcome Page----------------------------------------- */
 
 // input box
 let my_name = " Sachin Mishra  ";
@@ -43,18 +23,51 @@ let mytm = setInterval(()=>{
     
 },7000);
 
+//Check box
+let check_box = document.querySelector('#term_cond_chk');
+check_box.addEventListener('click', () =>{
+    if (check_box.checked == true){
+        document.querySelector('#conti-btn').removeAttribute('disabled','active');
+    }
+    else{
+        document.querySelector('#conti-btn').setAttribute('disabled','');
+    }
+});
+
+// RegExp for checking name
+function allLetter(inputtxt){ 
+    var letters = /^[A-Za-z]+$/;
+    if(inputtxt.value.match(letters)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+// Check input value
+user_name_inp.addEventListener('input',()=>{
+    let check_name = allLetter(user_name_inp);
+    if(user_name_inp.value.length >=2 && check_name){
+        document.querySelector('#erro').innerHTML = "";
+    }
+    else if(user_name_inp.value.length < 1){
+        document.querySelector('#erro').innerHTML = "";
+    }
+    else{
+        document.querySelector('#erro').innerHTML = "Please! Fill Correct Name";
+    }
+});
 
 // Continue Button
 let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=>{    
-    if(user_name_inp.value.length <= 2){
-        document.querySelector('#erro').innerHTML = "Please! Fill Correct Name";
-    }
-    else{
-       document.querySelector('.welcome-page').classList.add('active');
-       document.querySelector('.opt-cont').classList.add('active');
-       user_name.push(user_name_inp.value); //push input value in user_name array
+    let check_name = allLetter(user_name_inp);
+    if(user_name_inp.value.length >=2){
+        document.querySelector('.welcome-page').classList.add('active');
+        document.querySelector('.opt-cont').classList.add('active');
+        user_name.push(user_name_inp.value); //push input value in user_name array
+        console.log(user_name)
 
-        // 
+        // floating text
         let a = 0;
         let dis_nm = user_name[0]+" ";
         let dis_name_tm = setInterval(()=>{
@@ -66,10 +79,24 @@ let cond_btn = document.querySelector('#conti-btn').addEventListener('click',()=
             }
         },500);
     }
+    else{
+        document.querySelector('#erro').innerHTML = "Please! Fill Correct Name";
+    }
 });
 
-// opt-cont : option container
+/* --------------------------------Terms and Condtions---------------------- */
+let read_anc = document.querySelector('#read');
+read_anc.addEventListener('click', () =>{
+    document.querySelector('.welcome-page').classList.add('active');
+    document.querySelector('.terms-condi').classList.add('active');
+});
 
+let term_btn = document.querySelector('.term-btn').addEventListener('click', () =>{
+    document.querySelector('.terms-condi').classList.remove('active');
+    document.querySelector('.welcome-page').classList.remove('active');
+});
+
+/* ---------------------------------Option Container----------------------- */
 // number button
 let num_btn = document.querySelector('#number');
 num_btn.addEventListener('click',()=>{
@@ -83,7 +110,7 @@ let wod_btn = document.querySelector('#word').addEventListener('click',()=>{
     document.querySelector('.wrd-cont').classList.add('active');
 });
 
-// Starting Container
+/* ---------------------------Starting Container---------------------------- */
 let minute = 1;
 let inc_btn = document.querySelector('#inc');
 let dec_btn = document.querySelector('#dec');
@@ -141,10 +168,17 @@ min_selec.addEventListener('change',()=>{
     
 });
 
+/* --------------------------------------Starting Container------------------------------- */
 // Random Number Generate 
 function rand_num_gen(min,max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Back Button 
+let stcot_bck_btn = document.querySelector('#stcot-bck-btn').addEventListener('click',()=>{
+    document.querySelector('.div-start-cont').classList.remove('active');
+    document.querySelector('.opt-cont').classList.add('active');
+})
 
 // start button
 let guss_num;
@@ -194,6 +228,7 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
 
                         }
                         else{
+                            // Timing Counting
                             if(user_sec <= 59){
                                 if(user_sec == -1){
                                     user_sec = 59;
@@ -228,7 +263,7 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
     }
 });
 
-// Number Container 
+/* -----------------------------------Number Container-------------------------------- */
 let score = 0;
 let attempt = 0;
 let num_submit_btn = document.querySelector('#num-sub');
@@ -267,7 +302,7 @@ num_submit_btn.addEventListener('click',()=>{
     }
 });
 
-// Number Score Board
+/* --------------------------------------------Number Score Board----------------------------------- */
 // Play again btn
 let ply_agn_btn = document.querySelector('#ply-agn-btn');
 ply_agn_btn.addEventListener('click',()=>{
