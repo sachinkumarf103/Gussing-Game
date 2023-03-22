@@ -79,7 +79,8 @@ num_btn.addEventListener('click',()=>{
 
 // word button
 let wod_btn = document.querySelector('#word').addEventListener('click',()=>{
-    console.log("You Press Word Button")
+    document.querySelector('.opt-cont').classList.remove('active');
+    document.querySelector('.wrd-cont').classList.add('active');
 });
 
 // Starting Container
@@ -155,14 +156,13 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
     else{
         document.querySelector('.div-start-cont').classList.remove('active');
         document.querySelector('.count-cont').classList.add('active');
-        let time_val = [1,2,3,"Start"];
-        let i = 0;
 
         // number gussing program
         guss_num = rand_num_gen(min,max);
-        console.log(guss_num)
 
-
+        // 
+        let time_val = [1,2,3,"Start"];
+        let i = 0; 
         let strt = setInterval(()=>{
             document.querySelector('.count-cont #count').innerHTML = time_val[i];
             i++;
@@ -187,6 +187,11 @@ let start_btn = document.querySelector('#start-btn').addEventListener('click',()
                             console.log("Time Out");
                             document.querySelector('.num-cont').classList.remove('active');
                             document.querySelector('.num-scr-brd').classList.add('active');
+                            // Set Value on Score Board
+                            let sco_brd_val = document.querySelector('#sco-brd-val').innerHTML = score;
+                            let att_brd_val = document.querySelector('#att-brd-val').innerHTML = attempt;
+                            let tm_brd_val = document.querySelector('#tm-brd-val').innerHTML = `0${minute}:00`;
+
                         }
                         else{
                             if(user_sec <= 59){
@@ -241,7 +246,7 @@ num_submit_btn.addEventListener('click',()=>{
         score++;
         score_num.innerHTML = score;
         guss_num = rand_num_gen(min,max);
-        console.log(guss_num);
+        // console.log(guss_num);
 
         num_error.innerHTML = `You Gussed You Got ${score} Score`;
         num_error.style.color = "green";
@@ -268,4 +273,11 @@ let ply_agn_btn = document.querySelector('#ply-agn-btn');
 ply_agn_btn.addEventListener('click',()=>{
     document.querySelector('.num-scr-brd').classList.remove('active');
     document.querySelector('.opt-cont').classList.add('active');
+    score = 0;
+    attempt = 0;
+    attem_num.innerHTML = attempt;
+    score_num.innerHTML = score;
+    document.querySelector('#num-inp').value = "";
+    num_error.innerHTML = "";
+
 });
