@@ -1,2 +1,1 @@
-# Gussing-Game
-Working on Progress.
+Live: https://sachinkumarf103.github.io/Gussing-Game/
